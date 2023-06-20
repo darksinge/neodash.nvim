@@ -26,11 +26,10 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ## Usage
 
-### data.lua
+### Data
 
-`_.table_pack(...)`:
-
-```
+```lua
+_.table_pack(...)
 TODO: document
 ```
 
@@ -38,7 +37,7 @@ TODO: document
 
 `_.set_of`:
 
-### function.lua
+### Functions
 
 `_.curryN`:
 `_.compose`:
@@ -55,13 +54,15 @@ TODO: document
 `_.converge`:
 `_.apply_spec`:
 
-### list.lua
+### Lists
 
 ```lua
 _.reverse(list: T[]) -> T[]
 ```
 
 Reverses the given list and returns the result.
+
+---
 
 ```lua
 _.list_not_nil(...) -> T[]
