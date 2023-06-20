@@ -58,6 +58,7 @@ TODO: document
 ### list.lua
 
 - `_.reverse(list: T[]) -> T[]`
+
   Reverses the given list and returns the result.
 
 - `_.list_not_nil(...) -> T[]`
