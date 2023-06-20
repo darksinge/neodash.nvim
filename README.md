@@ -57,12 +57,17 @@ TODO: document
 
 ### list.lua
 
-- `_.reverse(list: T[]) -> T[]`
+```lua
+_.reverse(list: T[]) -> T[]
+```
 
-  Reverses the given list and returns the result.
+Reverses the given list and returns the result.
 
-- `_.list_not_nil(...) -> T[]`
-  Returns a list of arguments where nil values are omitted.
+```lua
+_.list_not_nil(...) -> T[]
+```
+
+Returns a list of arguments where nil values are omitted.
 
 - `_.find_first(predicate: fun(item: T): boolean, list: T[]) -> T | nil`
   Returns the first item in the list that satisfies the predicate function. If no such item is found, returns nil.
