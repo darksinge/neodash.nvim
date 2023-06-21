@@ -28,14 +28,29 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ### Data
 
-```lua
-_.table_pack(...)
-TODO: document
-```
+- ```lua
+  _.table_pack(...) -> table
+  ```
 
-`_.enum`:
+  Packs the given arguments into a table.
 
-`_.set_of`:
+- ```lua
+  ---@generic T : string
+  ---@param values T[]
+  ---@return table<T, T>
+  _.enum(values: string[]) -> table<string, string>
+  ```
+
+  Creates an enum from the given list of string values. The returned table uses each string as both a key and a value.
+
+- ```lua
+  ---@generic T
+  ---@param list T[]
+  ---@return table<T, boolean>
+  _.set_of(list: any[]) -> table<any, boolean>
+  ```
+
+  Creates a set from the given list. The returned table uses each value from the list as a key, and the value for each key is `true`.
 
 ### Functions
 
@@ -424,3 +439,324 @@ TODO: document
   ```
 
   Takes a default value and an optional value. If the optional value is not nil, it returns the optional value, otherwise it returns the default value.
+
+### Relation
+
+- ```lua
+  _.equals(expected: any, value: any) -> boolean
+  ```
+
+  Checks if the provided value is equal to the expected value. Returns true if they are equal, false otherwise.
+
+- ```lua
+  _.not_equals(expected: any, value: any) -> boolean
+  ```
+
+  Checks if the provided value is not equal to the expected value. Returns true if they are not equal, false otherwise.
+
+- ```lua
+  _.prop_eq(property: any, value: any, tbl: table) -> boolean
+  ```
+
+  Checks if the value of a given property in the provided table is equal to the provided value. Returns true if they are equal, false otherwise.
+
+- ```lua
+  _.prop_satisfies(predicate: fun(value: any): boolean, property: any, tbl: table) -> boolean
+  ```
+
+  Applies a predicate function to the value of a given property in the provided table. Returns the result of the predicate.
+
+- ```lua
+  _.path_satisfies(predicate: fun(value: any): boolean, path: any[], tbl: table) -> boolean
+  ```
+
+  Applies a predicate function to the value at a given path in the provided table. Returns the result of the predicate.
+
+- ```lua
+  _.min(a: number, b: number) -> number
+  ```
+
+  Subtracts the first number from the second one. Returns the result.
+
+- ```lua
+  _.add(a: number, b: number) -> number
+  ```
+
+  Adds two numbers together. Returns the result.
+
+### Strings
+
+- ```lua
+  ---@param pattern string
+  ---@param str string
+  _.matches(pattern: string, str: string) -> boolean
+  ```
+
+  Returns true if the string matches the provided pattern.
+
+- ```lua
+  _.match(pattern: string, str: string) -> table
+  ```
+
+  Returns a table with the matches of the provided pattern in the string.
+
+- ```lua
+  ---@param template string
+  ---@param str string
+  _.format(template: string, str: string) -> string
+  ```
+
+  Formats the string according to the provided template.
+
+- ```lua
+  ---@param sep string
+  ---@param str string
+  _.split(sep: string, str: string) -> table
+  ```
+
+  Splits the string into a table by the provided separator.
+
+- ```lua
+  ---@param pattern string
+  ---@param repl string|function|table
+  ---@param str string
+  _.gsub(pattern: string, repl: string|function|table, str: string) -> string
+  ```
+
+  Returns a string where the matches for the pattern have been replaced by the repl.
+
+- ```lua
+  _.trim(str: string) -> string
+  ```
+
+  Returns the string without leading/trailing whitespace.
+
+- ```lua
+  ---https://github.com/nvim-lua/nvim-package-specification/blob/93475e47545b579fd20b6c5ce13c4163e7956046/lua/packspec/schema.lua#L8-L37
+  ---@param str string
+  ---@return string
+  _.dedent(str: string) -> string
+  ```
+
+  Removes common leading indentation from a multiline string.
+
+- ```lua
+  ---@param prefix string
+  ---@str string
+  _.starts_with(prefix: string, str: string) -> boolean
+  ```
+
+  Returns true if the string starts with the provided prefix.
+
+- ```lua
+  ---@param str string
+  _.to_upper(str: string) -> string
+  ```
+
+  Returns the string converted to uppercase.
+
+- ```lua
+  ---@param str string
+  _.to_lower(str: string) -> string
+  ```
+
+  Returns the string converted to lowercase.
+
+- ```lua
+  ---@param pattern string
+  ---@param str string
+  _.trim_start_matches(pattern: string, str: string) -> string
+  ```
+
+  Returns the string with leading characters that match the pattern removed.
+
+- ```lua
+  ---@param pattern string
+  ---@param str string
+  _.trim_end_matches(pattern: string, str: string) -> string
+  ```
+
+  Returns the string with trailing characters that match the pattern removed.
+
+- ```lua
+  _.strip_prefix(prefix_pattern: string, str: string) -> string
+  ```
+
+  Returns the string with the prefix that matches the prefix_pattern removed.
+
+- ```lua
+  _.strip_suffix(suffix_pattern: string, str: string) -> string
+  ```
+
+  Returns the string with the suffix that matches the suffix_pattern removed.
+
+### Numbers
+
+- ```lua
+  ---@param number number
+  _.negate(number: number) -> number
+  ```
+
+  Negates the given number.
+
+- ```lua
+  _.gt(number: number, value: number) -> boolean
+  ```
+
+  Returns true if the value is greater than the number.
+
+- ```lua
+  _.gte(number: number, value: number) -> boolean
+  ```
+
+  Returns true if the value is greater than or equal to the number.
+
+- ```lua
+  _.lt(number: number, value: number) -> boolean
+  ```
+
+  Returns true if the value is less than the number.
+
+- ```lua
+  _.lte(number: number, value: number) -> boolean
+  ```
+
+  Returns true if the value is less than or equal to the number.
+
+- ```lua
+  _.inc(increment: number, value: number) -> number
+  ```
+
+  Increases the value by the increment.
+
+- ```lua
+  _.dec(decrement: number, value: number) -> number
+  ```
+
+  Decreases the value by the decrement.
+
+### Tables
+
+- ```lua
+  ---@generic T, U
+  ---@param index T
+  ---@param tbl table<T, U>
+  ---@return U?
+  _.prop(index: T, tbl: table<T, U>) -> U?
+  ```
+
+  Returns the value at the specified index in the table.
+
+- ```lua
+  ---@param path any[]
+  ---@param tbl table
+  _.path(path: any[], tbl: table) -> any
+  ```
+
+  Returns the value at the specified path in the table.
+
+- ```lua
+  ---@generic T, U
+  ---@param keys T[]
+  ---@param tbl table<T, U>
+  ---@return table<T, U>
+  _.pick(keys: T[], tbl: table<T, U>) -> table<T, U>
+  ```
+
+  Returns a new table with only the keys specified in the keys array.
+
+- ```lua
+  _.keys(tbl: table) -> table
+  ```
+
+  Returns an array of the table's keys.
+
+- ```lua
+  _.size(tbl: table) -> number
+  ```
+
+  Returns the number of keys in the table.
+
+- ```lua
+  ---@generic K, V
+  ---@param tbl table<K, V>
+  ---@return { [1]: K, [2]: V }[]
+  _.to_pairs(tbl: table<K, V>) -> { [1]: K, [2]: V }[]
+  ```
+
+  Returns an array of key-value pairs from the table.
+
+- ```lua
+  ---@generic K, V
+  ---@param pairs { [1]: K, [2]: V }[]
+  ---@return table<K, V>
+  _.from_pairs(pairs: { [1]: K, [2]: V }[]) -> table<K, V>
+  ```
+
+  Returns a new table created from the array of key-value pairs.
+
+- ```lua
+  ---@generic K, V
+  ---@param tbl table<K, V>
+  ---@return table<V, K>
+  _.invert(tbl: table<K, V>) -> table<V, K>
+  ```
+
+  Returns a new table where keys become values and values become keys.
+
+- ```lua
+  ---@generic K, V
+  ---@param transforms table<K, fun (value: V): V>
+  ---@param tbl table<K, V>
+  ---@return table<K, V>
+  _.evolve(transforms: table<K, fun (value: V): V>, tbl: table<K, V>) -> table<K, V>
+  ```
+
+  Returns a new table where each value is transformed by its corresponding function in the transforms table.
+
+- ```lua
+  ---@generic T : table
+  ---@param left T
+  ---@param right T
+  ---@return T
+  _.merge_left(left: T, right: T) -> T
+  ```
+
+  Returns a new table that is the result of merging the two input tables, with values from the left table overriding those from the right.
+
+- ```lua
+  ---@generic K, V
+  ---@param key K
+  ---@param value V
+  ---@param tbl table<K, V>
+  ---@return table<K, V>
+  _.assoc(key: K, value: V, tbl: table<K, V>) -> table<K, V>
+  ```
+
+  Returns a new table with the key set to the specified value.
+
+- ```lua
+  ---@generic K, V
+  ---@param key K
+  ---@param tbl table<K, V>
+  ---@return table<K, V>
+  _.dissoc(key: K, tbl: table<K, V>) -> table<K, V>
+  ```
+
+  Returns a new table with the specified key removed.
+
+### Type
+
+- ```lua
+  _.is_nil(value: any) -> boolean
+  ```
+
+  Checks if the value is nil.
+
+- ```lua
+  ---@param typ type
+  ---@param value any
+  _.is(typ: type, value: any) -> boolean
+  ```
+
+  Checks if the type of the value matches the provided type.
