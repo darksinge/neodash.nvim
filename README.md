@@ -24,6 +24,21 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 }
 ```
 
+## Contributing
+
+If you'd like to contribute, please open a new issue with your idea and let's
+chat!
+
+Things that would be helpful and extremely welcome:
+
+- Example snippets!
+- ChatGPT generated the majority of the documentation under [Usage](#usage), so
+  it's possible some of the documentation is incorrect. Corrections would be
+  greatly appreciated.
+- Also, ChatGPT generated the majority of the documentation, so some of the
+  method descriptions read like garbage. Better descriptions would also be
+  appreciated.
+
 ## Usage
 
 ### Data
@@ -44,6 +59,13 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   Creates an enum from the given list of string values. The returned table uses
   each string as both a key and a value.
 
+  Example:
+
+  ```lua
+  _.enum({ 'foo', 'bar', 'baz' })
+  -- => { foo = 'foo', bar = 'bar', baz = 'baz' }
+  ```
+
 - ```lua
   ---@generic T
   ---@param list T[]
@@ -54,28 +76,48 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   Creates a set from the given list. The returned table uses each value from
   the list as a key, and the value for each key is `true`.
 
+  Example:
+
+  ```lua
+  _.enum({ 'foo', 'bar', 'baz' })
+  -- => { foo = true, bar = true, baz = true}
+  ```
+
 ### Functions
 
 - ```lua
-  ---@generic T : fun(...)
-  ---@param fn T
-  ---@param arity integer
-  ---@return T
-  _.curryN(fn: T, arity: integer) -> T
+    ---@generic T : fun(...)
+    ---@param fn T
+    ---@param arity integer
+    ---@return T
+    _.curryN(fn: T, arity: integer) -> T
   ```
 
   This function `curryN` takes a function `fn` and an integer `arity` as
   arguments. It returns a curried version of the input function `fn`, which
   waits until it has received `arity` number of arguments before being invoked.
 
+  Example:
+
+  ```lua
+  local function sumThreeNumbers (a, b, c)
+      return a + b + c
+  end
+
+  local curriedSum = \_.curryN(sumThreeNumbers, 3)
+  print(curriedSum(1)(2)(3)) -- Output: 6
+  ```
+
 - ```lua
   _.compose(...) -> T
   ```
 
-  This function `compose` takes one or more functions as arguments and returns
-  a function. When the returned function is called, it runs the original input
-  functions from right to left, passing the result of each function into the
-  next.
+````
+
+This function `compose` takes one or more functions as arguments and returns
+a function. When the returned function is called, it runs the original input
+functions from right to left, passing the result of each function into the
+next.
 
 - ```lua
   ---@generic T
@@ -796,3 +838,4 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   ```
 
   Checks if the type of the value matches the provided type.
+````
