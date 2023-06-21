@@ -41,7 +41,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.enum(values: string[]) -> table<string, string>
   ```
 
-  Creates an enum from the given list of string values. The returned table uses each string as both a key and a value.
+  Creates an enum from the given list of string values. The returned table uses
+  each string as both a key and a value.
 
 - ```lua
   ---@generic T
@@ -50,7 +51,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.set_of(list: any[]) -> table<any, boolean>
   ```
 
-  Creates a set from the given list. The returned table uses each value from the list as a key, and the value for each key is `true`.
+  Creates a set from the given list. The returned table uses each value from
+  the list as a key, and the value for each key is `true`.
 
 ### Functions
 
@@ -210,31 +212,36 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.find_first(predicate: fun(item: T): boolean, list: T[]) -> T | nil
   ```
 
-  Returns the first item in the list that satisfies the predicate function. If no such item is found, returns nil.
+  Returns the first item in the list that satisfies the predicate function. If
+  no such item is found, returns nil.
 
 - ```lua
   _.any(predicate: fun(item: T): boolean, list: T[]) -> boolean
   ```
 
-  Checks if any item in the list satisfies the predicate function. Returns true if at least one item does, else false.
+  Checks if any item in the list satisfies the predicate function. Returns true
+  if at least one item does, else false.
 
 - ```lua
   _.all(predicate: fun(item: T): boolean, list: T[]) -> boolean
   ```
 
-  Checks if all items in the list satisfy the predicate function. Returns true only if all items satisfy the predicate.
+  Checks if all items in the list satisfy the predicate function. Returns true
+  only if all items satisfy the predicate.
 
 - ```lua
   _.filter(filter_fn: (fun(item: T): boolean), items: T[]) -> T[]
   ```
 
-  Filters the items in the list based on the filter function and returns the resulting list.
+  Filters the items in the list based on the filter function and returns the
+  resulting list.
 
 - ```lua
   _.map(map_fn: (fun(item: T): U), items: T[]) -> U[]
   ```
 
-  Applies the map function to all items in the list and returns the resulting list.
+  Applies the map function to all items in the list and returns the resulting
+  list.
 
 - ```lua
   _.flatten(value: any[]) -> any[]
@@ -246,13 +253,15 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.filter_map(map_fn: fun(item: T): Optional, list: T[]) -> any[]
   ```
 
-  Applies the map function to all items in the list and filters out items that are not present.
+  Applies the map function to all items in the list and filters out items that
+  are not present.
 
 - ```lua
   _.each(fn: fun(item: T, index: integer), list: T[])
   ```
 
-  Invokes the function on each item in the list. The function is called with two arguments: the item and its index.
+  Invokes the function on each item in the list. The function is called with
+  two arguments: the item and its index.
 
 - ```lua
   _.list_copy(list: T[]) -> T[]
@@ -282,13 +291,15 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.zip_table(keys: T[], values: U[]) -> table<T, U>
   ```
 
-  Returns a new table where keys from one list are associated with values from another list.
+  Returns a new table where keys from one list are associated with values from
+  another list.
 
 - ```lua
   _.nth(offset: number, value: T[]|string) -> T|string|nil
   ```
 
-  Returns the item at the given offset. For a negative offset, items are counted from the end.
+  Returns the item at the given offset. For a negative offset, items are
+  counted from the end.
 
 - ```lua
   _.head(value: T[]|string) -> T|string|nil
@@ -330,7 +341,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.partition(predicate: fun(item: T): boolean, list: T[]) -> T[][]
   ```
 
-  Partitions a list into two lists, where the first contains items that satisfy the predicate and the second contains items that don't.
+  Partitions a list into two lists, where the first contains items that satisfy
+  the predicate and the second contains items that don't.
 
 - ```lua
   _.take(n: integer, list: T[]) -> T[]
@@ -354,19 +366,22 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.reduce(fn: fun(acc: U, item: T): U, acc: U, list: T[]) -> U
   ```
 
-  Reduces a list to a single value by iteratively applying the function to an accumulator and each item in the list.
+  Reduces a list to a single value by iteratively applying the function to an
+  accumulator and each item in the list.
 
 - ```lua
   _.split_every(n: integer, list: T[]) -> T[][]
   ```
 
-  Splits a list into sub-lists each containing n items, except for the last one which may contain less.
+  Splits a list into sub-lists each containing n items, except for the last one
+  which may contain less.
 
 - ```lua
   _.index_by(index: fun(item: T): U, list: T[]) -> table<U, T>
   ```
 
-  Returns a table where each item in the list is indexed by the result of the index function.
+  Returns a table where each item in the list is indexed by the result of the
+  index function.
 
 ### Logic
 
@@ -378,7 +393,9 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.all_pass(predicates: (fun(item: T): boolean)[], item: T) -> boolean
   ```
 
-  Takes an array of predicate functions and an item. It returns true if all predicate functions pass for the item (i.e., return true), otherwise returns false.
+  Takes an array of predicate functions and an item. It returns true if all
+  predicate functions pass for the item (i.e., return true), otherwise returns
+  false.
 
 - ```lua
   ---@generic T
@@ -388,7 +405,9 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.any_pass(predicates: (fun(item: T): boolean)[], item: T) -> boolean
   ```
 
-  Takes an array of predicate functions and an item. Returns true if any of the predicate functions pass for the item (i.e., return true), otherwise returns false.
+  Takes an array of predicate functions and an item. Returns true if any of the
+  predicate functions pass for the item (i.e., return true), otherwise returns
+  false.
 
 - ```lua
   ---@generic T, U
@@ -400,7 +419,10 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.if_else(predicate: fun(item: T): boolean, on_true: fun(item: T): U, on_false: fun(item: T): U, value: T) -> U
   ```
 
-  Takes a predicate function, two transformation functions, and a value. If the predicate returns true for the value, it applies the first transformation function (on_true) on the value, otherwise applies the second transformation function (on_false).
+  Takes a predicate function, two transformation functions, and a value. If the
+  predicate returns true for the value, it applies the first transformation
+  function (on_true) on the value, otherwise applies the second transformation
+  function (on_false).
 
 - ```lua
   ---@param value boolean
@@ -418,7 +440,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.complement(predicate: fun(value: T): boolean, value: T) -> boolean
   ```
 
-  Takes a predicate function and a value, returns the negation of the predicate result for that value.
+  Takes a predicate function and a value, returns the negation of the predicate
+  result for that value.
 
 - ```lua
   ---@generic T, U
@@ -428,7 +451,11 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.cond(predicate_transformer_pairs: {[1]: (fun(value: T): boolean), [2]: (fun(value: T): U)}[], value: T) -> U?
   ```
 
-  Takes an array of predicate-transformer pairs and a value. For each pair, it checks if the value passes the predicate (the first element of the pair), if so, it returns the result of applying the transformer function (the second element of the pair) on the value. If none of the predicates pass, it returns nil.
+  Takes an array of predicate-transformer pairs and a value. For each pair, it
+  checks if the value passes the predicate (the first element of the pair), if
+  so, it returns the result of applying the transformer function (the second
+  element of the pair) on the value. If none of the predicates pass, it returns
+  nil.
 
 - ```lua
   ---@generic T
@@ -438,7 +465,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.default_to(default_val: T, val: T?) -> T
   ```
 
-  Takes a default value and an optional value. If the optional value is not nil, it returns the optional value, otherwise it returns the default value.
+  Takes a default value and an optional value. If the optional value is not
+  nil, it returns the optional value, otherwise it returns the default value.
 
 ### Relation
 
@@ -446,31 +474,36 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.equals(expected: any, value: any) -> boolean
   ```
 
-  Checks if the provided value is equal to the expected value. Returns true if they are equal, false otherwise.
+  Checks if the provided value is equal to the expected value. Returns true if
+  they are equal, false otherwise.
 
 - ```lua
   _.not_equals(expected: any, value: any) -> boolean
   ```
 
-  Checks if the provided value is not equal to the expected value. Returns true if they are not equal, false otherwise.
+  Checks if the provided value is not equal to the expected value. Returns true
+  if they are not equal, false otherwise.
 
 - ```lua
   _.prop_eq(property: any, value: any, tbl: table) -> boolean
   ```
 
-  Checks if the value of a given property in the provided table is equal to the provided value. Returns true if they are equal, false otherwise.
+  Checks if the value of a given property in the provided table is equal to the
+  provided value. Returns true if they are equal, false otherwise.
 
 - ```lua
   _.prop_satisfies(predicate: fun(value: any): boolean, property: any, tbl: table) -> boolean
   ```
 
-  Applies a predicate function to the value of a given property in the provided table. Returns the result of the predicate.
+  Applies a predicate function to the value of a given property in the provided
+  table. Returns the result of the predicate.
 
 - ```lua
   _.path_satisfies(predicate: fun(value: any): boolean, path: any[], tbl: table) -> boolean
   ```
 
-  Applies a predicate function to the value at a given path in the provided table. Returns the result of the predicate.
+  Applies a predicate function to the value at a given path in the provided
+  table. Returns the result of the predicate.
 
 - ```lua
   _.min(a: number, b: number) -> number
@@ -523,7 +556,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.gsub(pattern: string, repl: string|function|table, str: string) -> string
   ```
 
-  Returns a string where the matches for the pattern have been replaced by the repl.
+  Returns a string where the matches for the pattern have been replaced by the
+  repl.
 
 - ```lua
   _.trim(str: string) -> string
@@ -712,7 +746,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.evolve(transforms: table<K, fun (value: V): V>, tbl: table<K, V>) -> table<K, V>
   ```
 
-  Returns a new table where each value is transformed by its corresponding function in the transforms table.
+  Returns a new table where each value is transformed by its corresponding
+  function in the transforms table.
 
 - ```lua
   ---@generic T : table
@@ -722,7 +757,8 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
   _.merge_left(left: T, right: T) -> T
   ```
 
-  Returns a new table that is the result of merging the two input tables, with values from the left table overriding those from the right.
+  Returns a new table that is the result of merging the two input tables, with
+  values from the left table overriding those from the right.
 
 - ```lua
   ---@generic K, V

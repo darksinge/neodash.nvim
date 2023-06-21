@@ -1,4 +1,4 @@
-local fun = require "functional.function"
+local fun = require "neodash.function"
 
 local _ = {}
 

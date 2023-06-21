@@ -1,5 +1,5 @@
-local data = require "functional.data"
-local fun = require "functional.function"
+local data = require "neodash.data"
+local fun = require "neodash.function"
 
 local _ = {}
 

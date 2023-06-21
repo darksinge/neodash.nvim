@@ -12,14 +12,14 @@ end
 
 _.lazy_require = lazy_require
 
----@module "functional.data"
-local data = lazy_require "functional.data"
+---@module "neodash.data"
+local data = lazy_require "neodash.data"
 _.table_pack = data.table_pack
 _.enum = data.enum
 _.set_of = data.set_of
 
----@module "functional.function"
-local fun = lazy_require "functional.function"
+---@module "neodash.function"
+local fun = lazy_require "neodash.function"
 _.curryN = fun.curryN
 _.compose = fun.compose
 _.partial = fun.partial
@@ -35,8 +35,8 @@ _.apply = fun.apply
 _.converge = fun.converge
 _.apply_spec = fun.apply_spec
 
----@module "functional.list"
-local list = lazy_require "functional.list"
+---@module "neodash.list"
+local list = lazy_require "neodash.list"
 _.reverse = list.reverse
 _.list_not_nil = list.list_not_nil
 _.list_copy = list.list_copy
@@ -67,8 +67,8 @@ _.reduce = list.reduce
 _.split_every = list.split_every
 _.index_by = list.index_by
 
----@module "functional.relation"
-local relation = lazy_require "functional.relation"
+---@module "neodash.relation"
+local relation = lazy_require "neodash.relation"
 _.equals = relation.equals
 _.not_equals = relation.not_equals
 _.prop_eq = relation.prop_eq
@@ -77,8 +77,8 @@ _.path_satisfies = relation.path_satisfies
 _.min = relation.min
 _.add = relation.add
 
----@module "functional.logic"
-local logic = lazy_require "functional.logic"
+---@module "neodash.logic"
+local logic = lazy_require "neodash.logic"
 _.all_pass = logic.all_pass
 _.any_pass = logic.any_pass
 _.if_else = logic.if_else
@@ -87,8 +87,8 @@ _.complement = logic.complement
 _.cond = logic.cond
 _.default_to = logic.default_to
 
----@module "functional.number"
-local number = lazy_require "functional.number"
+---@module "neodash.number"
+local number = lazy_require "neodash.number"
 _.negate = number.negate
 _.gt = number.gt
 _.gte = number.gte
@@ -97,8 +97,8 @@ _.lte = number.lte
 _.inc = number.inc
 _.dec = number.dec
 
----@module "functional.string"
-local string = lazy_require "functional.string"
+---@module "neodash.string"
+local string = lazy_require "neodash.string"
 _.matches = string.matches
 _.match = string.match
 _.format = string.format
@@ -114,8 +114,8 @@ _.starts_with = string.starts_with
 _.to_upper = string.to_upper
 _.to_lower = string.to_lower
 
----@module "functional.table"
-local tbl = lazy_require "functional.table"
+---@module "neodash.table"
+local tbl = lazy_require "neodash.table"
 _.prop = tbl.prop
 _.path = tbl.path
 _.pick = tbl.pick
@@ -129,8 +129,8 @@ _.merge_left = tbl.merge_left
 _.dissoc = tbl.dissoc
 _.assoc = tbl.assoc
 
----@module "functional.type"
-local typ = lazy_require "functional.type"
+---@module "neodash.type"
+local typ = lazy_require "neodash.type"
 _.is_nil = typ.is_nil
 _.is = typ.is
 

@@ -1,5 +1,5 @@
-local fun = require "functional.function"
-local rel = require "functional.relation"
+local fun = require "neodash.function"
+local rel = require "neodash.relation"
 
 local _ = {}
 

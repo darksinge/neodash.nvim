@@ -1,4 +1,4 @@
-local data = require "functional.data"
+local data = require "neodash.data"
 
 local _ = {}
 
