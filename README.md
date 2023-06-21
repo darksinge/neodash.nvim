@@ -8,10 +8,10 @@ Also, the initial commit was shamelessly copy-pasted from
 
 ## But why?
 
-- I wanted to package this in its own plugin because I kept needing the same
-  functionality in several of my own plugins.
+- I wanted to package these functions into a plugin because I kept needing the
+  same functionality in several of my projects for NeoVim.
 
-- Documentation. Lua packages tend to suck at this.
+- Documentation. Lua packages tend to suck at this. I wanted to make it better.
 
 ## Installation
 
@@ -29,15 +29,15 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 If you'd like to contribute, please open a new issue with your idea and let's
 chat!
 
-Things that would be helpful and extremely welcome:
+Things that would be extremely welcome:
 
 - Example snippets!
 - ChatGPT generated the majority of the documentation under [Usage](#usage), so
-  it's possible some of the documentation is incorrect. Corrections would be
-  greatly appreciated.
+  it's possible some of the documentation is incorrect.
 - Also, ChatGPT generated the majority of the documentation, so some of the
-  method descriptions read like garbage. Better descriptions would also be
-  appreciated.
+  method descriptions read like garbage.
+
+If you find issues in the documentation or are willing to add examples, your PR would be welcome!
 
 ## Usage
 
@@ -53,9 +53,10 @@ Things that would be helpful and extremely welcome:
 
   ```lua
   local packed = _.table_pack('a', 'b', 'c')
-  print(vim.inspect(packed)) -- Output: { 'a', 'b', 'c', n = 3 }
-  local nargs = packed.n
-  print(nargs) -- Output: 3
+  print(packed[1]) -- a
+  print(packed[2]) -- b
+  print(packed[3]) -- c
+  print(packed.n)  -- 3
   ```
 
   <hr>
