@@ -49,6 +49,17 @@ Things that would be helpful and extremely welcome:
 
   Packs the given arguments into a table.
 
+  Example:
+
+  ```lua
+  local packed = _.table_pack('a', 'b', 'c')
+  print(vim.inspect(packed)) -- Output: { 'a', 'b', 'c', n = 3 }
+  local nargs = packed.n
+  print(nargs) -- Output: 3
+  ```
+
+  <hr>
+
 - ```lua
   ---@generic T : string
   ---@param values T[]
@@ -65,6 +76,8 @@ Things that would be helpful and extremely welcome:
   _.enum({ 'foo', 'bar', 'baz' })
   -- => { foo = 'foo', bar = 'bar', baz = 'baz' }
   ```
+
+  <hr>
 
 - ```lua
   ---@generic T
@@ -107,6 +120,8 @@ Things that would be helpful and extremely welcome:
   local curriedSum = \_.curryN(sumThreeNumbers, 3)
   print(curriedSum(1)(2)(3)) -- Output: 6
   ```
+
+  <hr>
 
 - ```lua
   _.compose(...) -> T
