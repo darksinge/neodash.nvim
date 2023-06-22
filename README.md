@@ -128,12 +128,10 @@ If you find issues in the documentation or are willing to add examples, your PR 
   _.compose(...) -> T
   ```
 
-````
-
-This function `compose` takes one or more functions as arguments and returns
-a function. When the returned function is called, it runs the original input
-functions from right to left, passing the result of each function into the
-next.
+  This function `compose` takes one or more functions as arguments and returns
+  a function. When the returned function is called, it runs the original input
+  functions from right to left, passing the result of each function into the
+  next.
 
 - ```lua
   ---@generic T
@@ -854,4 +852,7 @@ next.
   ```
 
   Checks if the type of the value matches the provided type.
-````
+
+```
+
+```
