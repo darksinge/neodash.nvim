@@ -439,6 +439,41 @@ If you find issues in the documentation or are willing to add examples, your PR 
   Returns a table where each item in the list is indexed by the result of the
   index function.
 
+
+- ```lua
+  ---@generic T
+  ---@param list T[]
+  ---@return T[]
+  _.shift(list: T[]) -> T[]
+  ```
+
+  Removes the first element from an array.
+
+  Example:
+
+  ```lua
+  local shifted = _.shift({ 1, 2, 3 })
+  print(vim.inspect(shifted)) -- { 2, 3 }
+  ```
+
+  <hr>
+
+- ```lua
+  _.unshift(index: fun(item: T): U, list: T[]) -> table<U, T>
+  ```
+
+  Adds the specified elements to the beginning of a list.
+
+  Example:
+
+  ```lua
+  local list = { 1, 2, 3 }
+  local unshifted = _.unshift(list, 4, 5)
+  print(vim.inspect(unshifted)) -- { 4, 5, 1, 2, 3 }
+  ```
+
+  <hr>
+
 ### Logic
 
 - ```lua
