@@ -296,4 +296,33 @@ _.index_by = fun.curryN(function(index, list)
   return res
 end, 2)
 
+---@generic T
+---@param list T[]
+---@return T[]
+_.shift = function(list)
+  local res = {}
+  for i = 2, #list do
+    table.insert(res, list[i])
+  end
+  return res
+end
+
+---@generic T
+---@param list T[]
+---@param ... T
+---@return T[]
+_.unshift = function(list, ...)
+  local args = data.table_pack(...)
+  local res = {}
+  for _, item in ipairs(args) do
+    table.insert(res, item)
+  end
+
+  for _, item in ipairs(list) do
+    table.insert(res, item)
+  end
+
+  return res
+end
+
 return _
