@@ -441,7 +441,7 @@ If you find issues in the documentation or are willing to add examples, your PR 
 
 
 - ```lua
-  ---@generic T
+  ---@generic T : any
   ---@param list T[]
   ---@return T[]
   _.shift(list: T[]) -> T[]
@@ -459,7 +459,11 @@ If you find issues in the documentation or are willing to add examples, your PR 
   <hr>
 
 - ```lua
-  _.unshift(index: fun(item: T): U, list: T[]) -> table<U, T>
+  ---@generic T : any
+  ---@param list T[]
+  ---@param ... T
+  ---@return T[]
+  _.unshift(list: T[], ...<T>) -> T[]
   ```
 
   Adds the specified elements to the beginning of a list.

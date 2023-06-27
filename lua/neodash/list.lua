@@ -296,7 +296,7 @@ _.index_by = fun.curryN(function(index, list)
   return res
 end, 2)
 
----@generic T
+---@generic T : any
 ---@param list T[]
 ---@return T[]
 _.shift = function(list)
@@ -307,7 +307,7 @@ _.shift = function(list)
   return res
 end
 
----@generic T
+---@generic T : any
 ---@param list T[]
 ---@param ... T
 ---@return T[]
