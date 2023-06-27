@@ -118,7 +118,7 @@ If you find issues in the documentation or are willing to add examples, your PR 
       return a + b + c
   end
 
-  local curriedSum = \_.curryN(sumThreeNumbers, 3)
+  local curriedSum = _.curryN(sumThreeNumbers, 3)
   print(curriedSum(1)(2)(3)) -- Output: 6
   ```
 
