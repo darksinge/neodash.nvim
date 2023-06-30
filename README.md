@@ -306,6 +306,22 @@ If you find issues in the documentation or are willing to add examples, your PR 
   Flattens a nested list into a single level list.
 
 - ```lua
+  ---@generic T, U
+  ---@type fun(map_fn: (fun(item: T): U), items: T[]): U[]
+  _.flat_map = _.curryN(function(map_fn, list)
+  ```
+
+  Example:
+
+  ```lua
+  function duplicate(n)
+    return { n, n }
+  end
+  _.flat_map(duplicate, { 1, 2 })
+  -- => { 1, 1, 2, 2 }
+  ```
+
+- ```lua
   _.filter_map(map_fn: fun(item: T): Optional, list: T[]) -> any[]
   ```
 
