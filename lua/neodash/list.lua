@@ -78,8 +78,8 @@ _.flatten = fun.curryN(vim.tbl_flatten, 1)
 
 ---@generic T, U
 ---@type fun(map_fn: (fun(item: T): U), items: T[]): U[]
-_.flat_map = _.curryN(function(map_fn, list)
-  local mapped = _.map(map_fn, list)
+_.flat_map = fun.curryN(function(map_fn, list)
+  local mapped = fun.map(map_fn, list)
   return _.flatten(mapped)
 end, 2)
 
